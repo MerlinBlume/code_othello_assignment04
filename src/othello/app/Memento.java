@@ -2,6 +2,7 @@ package othello.app;
 
 import othello.model.Board;
 
+
 public class Memento {
 	private Board board;
 	

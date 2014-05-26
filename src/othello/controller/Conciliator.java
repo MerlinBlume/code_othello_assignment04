@@ -26,4 +26,5 @@ public class Conciliator {
 	public CmdPrompt getCmd() {
 		return cmd;
 	}
+	
 }

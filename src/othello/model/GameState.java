@@ -16,7 +16,7 @@ public class GameState implements CmdListener {
 	int undo = 0;
 	
 	public GameState(){
-		this.board = new Board();
+		this.board = new Board(8);
 		this.numWhite = 0;
 		this.numBlack = 0;
 		this.totalNum = numWhite + numBlack;
@@ -39,8 +39,6 @@ public class GameState implements CmdListener {
 	public void setMemento(Memento preState){
 		board = preState.getState(undo);
 	}
-	
-	
 	
 	public void whoWon(){
 		if (numWhite < numBlack)
@@ -97,7 +95,7 @@ public class GameState implements CmdListener {
 	}
 	
 	public void placeDisc(int x, int y, String colour){
-		board.addDisc(x, y, colour);
+		board.addDisc(x, y, new Disc(colour));
 	}
 
 	@Override

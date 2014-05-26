@@ -6,12 +6,9 @@ import java.util.List;
 import othello.controller.Conciliator;
 
 public class Application {
-	
-	/**
-	 * @param args
-	 */
-		
+			
 	public static void main(String[] args) {
+		
 		try{
 			List<Memento> States = new ArrayList<Memento>();
 			Memento state;
@@ -51,5 +48,4 @@ public class Application {
 			System.out.printf(e.getMessage());
 		}
 	}
-
 }
