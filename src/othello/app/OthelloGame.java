@@ -24,38 +24,61 @@ public class OthelloGame extends GameFactory {
 	}
 	
 	@Override
-	public void run() {
+	boolean initMove() {
 		
-		try {
+		GameTimer timecount = GameTimer.getInstance();
+		//to-do implement timer;
+		timecount.setNull();
+		
+		return true;
+	}
+
+	@Override
+	boolean askForMove(boolean in) {
+		
+		// function askForMove() could return boolean by itself e.g. if no correct move has been supplied
+		ref.getGame().placeDisc(ref.getCmd().askForMove(), ref.getCmd().askForMove(), ref.getGame().getCurrentPlayer().getColour());
+		
+		return true;
+	}
+
+	@Override
+	boolean respond(boolean in) {
+		
+		// In this case the respond is rather simple. But since we are using the template method it's easy to allocate where
+		// extensions to the respond should be added.
+		ref.getGame().getBoard().printBoard();
+		
+		return true;
+	}
+
+	@Override
+	boolean askForUndo(boolean in) {
+		
+		// managing undo
+		state = ref.getGame().setState(ref.getGame().getBoard());
+		states.add(state);
+		
+		boolean undo = ref.getCmd().askToUndo();				
+		if(undo==true){
+			int i = ref.getCmd().undoMoves();
+			ref.getGame().setMemento(states.get(i));	
+			ref.getGame().getState().printBoard();
 			
-			do{	
-				
-				GameTimer timecount = GameTimer.getInstance();
-				//to-do implement timer;
-				timecount.setNull();
-				
-				ref.getGame().placeDisc(ref.getCmd().askForMove(), ref.getCmd().askForMove(), ref.getGame().getCurrentPlayer().getColour());
-				
-				ref.getGame().getBoard().printBoard();
-				state = ref.getGame().setState(ref.getGame().getBoard());
-				states.add(state);
-				
-				ref.getGame().switchPlayers();
-								
-				if(ref.getCmd().askToUndo()==true){
-					int i = ref.getCmd().undoMoves();
-					ref.getGame().setMemento(states.get(i));	
-					ref.getGame().getState().printBoard();
-				}
-				
-				System.out.println("Your turn " + ref.getGame().getPendingPlayer().getName());
-				
-			} while(ref.getGame().getNumBlack() < 32);
+			return true;
 		}
 		
-		catch (Exception e) {
-			// TODO Auto-generated catch block
-			e.printStackTrace();
-		}	
+		return false;
+	}
+
+	@Override
+	boolean finalizeMove(boolean in) {
+		
+		// Finalizing the move
+		if(in != true)ref.getGame().switchPlayers();
+		System.out.println("Your turn " + ref.getGame().getPendingPlayer().getName());
+		
+		if(ref.getGame().getNumBlack() < 32) return false;
+		return true;
 	}
 }
