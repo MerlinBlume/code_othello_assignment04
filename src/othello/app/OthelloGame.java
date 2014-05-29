@@ -4,6 +4,7 @@ import java.util.ArrayList;
 import java.util.List;
 
 import othello.controller.Conciliator;
+import othello.model.Disc;
 
 public class OthelloGame extends GameFactory {
 
@@ -16,7 +17,17 @@ public class OthelloGame extends GameFactory {
 		states = new ArrayList<Memento>();
 		ref = new Conciliator();
 		
+		
+		// why we no init othello boardies heres? - Matt Jones.
+		// seems to works??
+		ref.getGame().getBoard().addDisc(3, 3, new Disc("White"));
+		ref.getGame().getBoard().addDisc(3, 4, new Disc("Black"));
+		ref.getGame().getBoard().addDisc(4, 4, new Disc("White"));
+		ref.getGame().getBoard().addDisc(4, 3, new Disc("Black"));
+		// bah! I did it.
+		
 		ref.getGame().getBoard().printBoard();
+		
 		state = ref.getGame().setState(ref.getGame().getBoard());
 		states.add(state);
 		

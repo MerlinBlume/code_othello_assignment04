@@ -33,9 +33,20 @@ class GenericBoard<T extends Comparable<T>> {
 	//		board[x][y] = new Disc(colour);
 	// }
 	
+	// had to give the board special powers to allow disc removal.
+	
+	public void removeDisc(int x, int y)
+	{
+		board.get(x).remove(y);
+		board.get(x).add(null);
+	}
+	
+	
 	public T getPiece(int x, int y) {
 		return (T)board.get(x).get(y);
 	}
+	
+	
 	
 	public void printBoard() {
 		for(int i = 0; i < dimension; i++){
@@ -59,10 +70,12 @@ public class Board extends GenericBoard<Disc> {
 	public Board(int dimension) {
 	
 		super(dimension);
-		
+		/*
+		 * Removing Wizard code. Matt Jones 2014-05-29 2112'ish
 		addDisc(3, 3, new Disc("White"));
 		addDisc(3, 4, new Disc("Black"));
 		addDisc(4, 4, new Disc("White"));
 		addDisc(4, 3, new Disc("Black"));
+		*/
 	}
 }

@@ -23,7 +23,8 @@ public class PlayerList {
 		System.out.println("Please enter a name for Black Disc Player: ");
 		this.blackPlayer = new Player(input.nextLine());
 			blackPlayer.setColour("B");
-			System.out.println("Your colour is black!");
+			// matt jones - deleted the following line cause its redundant.
+			// System.out.println("Your colour is black!");
 		System.out.println();	
 		
 	}

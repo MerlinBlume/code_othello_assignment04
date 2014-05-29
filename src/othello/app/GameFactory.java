@@ -3,10 +3,13 @@ package othello.app;
 public abstract class GameFactory {
 
 	static GameFactory game;
-	
-	public static enum GameTitle {
-	    OTHELLO, CHECKER 
-	}
+	/*
+	 *  Matt Jones, moved this into a new ENUM class
+	 *  2014-MAY-29 @ 20:40.
+	 *  public static enum GameTitle {
+	 *   OTHELLO, CHECKER 
+	 *  }
+	 */
 	
 	static GameFactory create(GameTitle title){
 	
@@ -15,7 +18,7 @@ public abstract class GameFactory {
 			game = new OthelloGame();
 			break;
 
-		case CHECKER:
+		case CHECKERS:
 			game = new CheckerGame();
 			break;
 			

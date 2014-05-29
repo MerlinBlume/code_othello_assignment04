@@ -97,11 +97,18 @@ public class GameState implements CmdListener {
 	public void placeDisc(int x, int y, String colour){
 		board.addDisc(x, y, new Disc(colour));
 	}
+	
+	
+	public void removeDisc(int x, int y)
+	{
+		board.removeDisc(x, y);
+	}
 
 	@Override
 	public String readBufferListening() {
 		// TODO This is enable the GameState to read inputs itself if needed
 		return null;
 	}
+
 	
 }

@@ -1,12 +1,18 @@
 package othello.app;
 
-import othello.app.GameFactory.GameTitle;
+
+import othello.view.CmdPrompt;
 
 public class Application {
 			
 	public static void main(String[] args) {
 		
-		GameFactory othello = GameFactory.create(GameTitle.OTHELLO);
-		othello.run();	
+	
+		// Matt Jones - can I use the CmdPrompt 'legally' here???
+		CmdPrompt cmd = new CmdPrompt();
+		
+		GameFactory game = GameFactory.create(cmd.askForGame());
+		
+		game.run();	
 	}
 }

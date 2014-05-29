@@ -1,6 +1,6 @@
 package othello.model;
 
-import com.sun.xml.internal.bind.v2.runtime.RuntimeUtil.ToStringAdapter;
+//import com.sun.xml.internal.bind.v2.runtime.RuntimeUtil.ToStringAdapter;
 
 public class Disc implements Comparable<Disc> {
 	
