@@ -3,6 +3,8 @@ package othello.view;
 
 import java.util.Scanner;
 
+import othello.app.GameTitle;
+
 public class CmdPrompt implements CmdListener {
 
 	Scanner inputListener;
@@ -41,6 +43,17 @@ public class CmdPrompt implements CmdListener {
 		System.out.println("How many states would ou like to undo?");
 		int input = Integer.parseInt(readBufferListening());
 		return input;
+	}
+
+	public GameTitle askForGame() {
+		System.out.println("What game would you like to play? [Checkers | Othello]?");
+		String input = readBufferListening();
+		if(input.equals("Checkers")){
+			return GameTitle.CHECKERS;
+		}else
+		{
+		return GameTitle.OTHELLO;
+		}
 	}
 	
 	
