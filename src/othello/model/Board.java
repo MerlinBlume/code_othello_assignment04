@@ -37,8 +37,9 @@ class GenericBoard<T extends Comparable<T>> {
 	
 	public void removeDisc(int x, int y)
 	{
-		board.get(x).remove(y);
-		board.get(x).add(null);
+		
+		board.get(x).set(y, null);
+		//board.get(x).add(null);
 	}
 	
 	

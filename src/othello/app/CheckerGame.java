@@ -57,7 +57,8 @@ public class CheckerGame extends GameFactory{
 
 	@Override
 	boolean respond(boolean in) {
-		// TODO Auto-generated method stub
+		ref.getGame().getBoard().printBoard();
+		
 		return false;
 	}
 
