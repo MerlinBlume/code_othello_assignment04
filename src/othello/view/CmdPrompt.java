@@ -48,7 +48,7 @@ public class CmdPrompt implements CmdListener {
 	public GameTitle askForGame() {
 		System.out.println("What game would you like to play? [Checkers | Othello]?");
 		String input = readBufferListening();
-		if(input.equals("Checkers")){
+		if(input.equalsIgnoreCase("CHECKERS")){
 			return GameTitle.CHECKERS;
 		}else
 		{
