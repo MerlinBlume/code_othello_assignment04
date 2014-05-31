@@ -11,7 +11,7 @@ public class CheckerGame extends GameFactory{
 	
 	final Conciliator ref;
 	List<Memento> states;
-	Memento state;
+	//Memento state;
 	
 	
 	public CheckerGame() {
@@ -29,9 +29,9 @@ public class CheckerGame extends GameFactory{
 		// bah! I did it.
 		
 		ref.getGame().getBoard().printBoard();
+		Memento startState = new Memento(ref.getGame().getBoard());
 		
-		state = ref.getGame().setState(ref.getGame().getBoard());
-		states.add(state);
+		states.add(startState);
 		
 		System.out.println("Your turn " + ref.getGame().getPendingPlayer().getName());
 		
@@ -52,6 +52,8 @@ public class CheckerGame extends GameFactory{
 		ref.getGame().removeDisc(ref.getCmd().askForMove(), ref.getCmd().askForMove());
 		ref.getGame().placeDisc(ref.getCmd().askForMove(), ref.getCmd().askForMove(), ref.getGame().getCurrentPlayer().getColour());
 		
+		Memento postMove = new Memento(ref.getGame().getBoard());
+		states.add(postMove);
 		return true;
 	}
 
@@ -64,36 +66,46 @@ public class CheckerGame extends GameFactory{
 
 	@Override
 	boolean askForUndo(boolean in) {
-		// TODO Auto-generated method stub
+		
+		//aint working. :(
+		
 		return false;
 	}
+	
 
 	@Override
 	boolean finalizeMove(boolean in) {
-		// TODO Auto-generated method stub
-		return false;
+		
+		if(in != true)ref.getGame().switchPlayers();
+		System.out.println("Your turn " + ref.getGame().getPendingPlayer().getName());
+		
+		
+		// implement a rule check here?
+		//if(ref.getGame().getNumBlack() < 32) return false;
+		
+		
+		return true;
+		
 	}
 	
 	
-	// i am a helper method to populate the checkers board with 
-	// m and m's (or Disc's - anything Comparable is possible?)
-	// Matt Jones
 	
-	// I based this arrangement on the "English Draughts wiki page.
-	
+	// boardSetup() is a helper method to place disc's on the board.
 	private void boardSetup() {	
 		String[] colour = {"Black","White"};
 		int[] printRows = {0,1,2};
 		boolean offset = true;
-		for(int i=0;i<2;i++)
+		for(int i=0;i<2;i++)    // loop for each player
 		{
-			for(int k=0; k<3;k++)
+			for(int k=0; k<3;k++) // loop for each row (&^)
 			{
-			  for(int j = (offset) ? 1 : 0 ; j<=7; j+=2)
+			  for(int j = (offset) ? 1 : 0 ; j<=7; j+=2) // loop for each disc, (&^^)
 			  {
 				ref.getGame().getBoard().addDisc(printRows[k], j , new Disc(colour[i]));		
 			  }
+			   // inverse the positioning offset 
 			   offset = !offset;
+			   // inverse the row to print on
 			   printRows[k] = 7 - printRows[k];
 			}	
 		}

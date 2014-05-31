@@ -33,20 +33,20 @@ public class CmdPrompt implements CmdListener {
 	public boolean askToUndo(){
 		System.out.println("Would you like to undo moves? (Y/N)");
 		String input = readBufferListening();
-		if(input.equals("Y")){
+		if(input.equalsIgnoreCase("Y")){
 			return true;
 		}
 		else return false;
 	}
 	
 	public int undoMoves(){
-		System.out.println("How many states would ou like to undo?");
+		System.out.println("How many states would you like to undo?");
 		int input = Integer.parseInt(readBufferListening());
 		return input;
 	}
 
 	public GameTitle askForGame() {
-		System.out.println("What game would you like to play? [Checkers | Othello]?");
+		System.out.println("What game would you like to play? (Checkers | Othello)?");
 		String input = readBufferListening();
 		if(input.equalsIgnoreCase("CHECKERS")){
 			return GameTitle.CHECKERS;

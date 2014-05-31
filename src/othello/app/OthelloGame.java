@@ -56,8 +56,8 @@ public class OthelloGame extends GameFactory {
 	@Override
 	boolean respond(boolean in) {
 		
-		// In this case the respond is rather simple. But since we are using the template method it's easy to allocate where
-		// extensions to the respond should be added.
+		// In this case the respond is rather simple. But since we are using the template method it's easy 
+		// to allocate where extensions to the respond should be added.
 		ref.getGame().getBoard().printBoard();
 		
 		return true;
