@@ -5,6 +5,8 @@ import java.util.List;
 
 import othello.controller.Conciliator;
 import othello.model.Disc;
+import othello.model.Move;
+import othello.model.OthelloRulesSet;
 
 public class OthelloGame extends GameFactory {
 
@@ -16,6 +18,10 @@ public class OthelloGame extends GameFactory {
 		
 		states = new ArrayList<Memento>();
 		ref = new Conciliator();
+		
+		
+		// when new othello game is created, we define the ruleset.
+		ref.setRulesSet(new OthelloRulesSet());
 		
 		
 		// why we no init othello boardies heres? - Matt Jones.
@@ -46,6 +52,10 @@ public class OthelloGame extends GameFactory {
 
 	@Override
 	boolean askForMove(boolean in) {
+		
+		
+		Move m = new Move(1, 1);
+		
 		
 		// function askForMove() could return boolean by itself e.g. if no correct move has been supplied
 		ref.getGame().placeDisc(ref.getCmd().askForMove(), ref.getCmd().askForMove(), ref.getGame().getCurrentPlayer().getColour());

@@ -5,6 +5,8 @@ import java.util.List;
 
 import othello.controller.Conciliator;
 import othello.model.Disc;
+import othello.model.CheckersRulesSet;
+import othello.model.Move;
 
 public class CheckerGame extends GameFactory{
 
@@ -19,6 +21,7 @@ public class CheckerGame extends GameFactory{
 		
 		states = new ArrayList<Memento>();
 		ref = new Conciliator();
+		ref.setRulesSet(new CheckersRulesSet());
 		
 		
 		// why we no init checkers heres? - Matt Jones.
@@ -49,8 +52,18 @@ public class CheckerGame extends GameFactory{
 	@Override
 	boolean askForMove(boolean in) {
 		
+		//TODO: record move.
+		Move mOrigin = new Move(1, 1);
+		
+		
+		
+		
+		ref.getRulesSet().checkMove(mOrigin);
 		ref.getGame().removeDisc(ref.getCmd().askForMove(), ref.getCmd().askForMove());
+		
+		
 		ref.getGame().placeDisc(ref.getCmd().askForMove(), ref.getCmd().askForMove(), ref.getGame().getCurrentPlayer().getColour());
+		
 		
 		Memento postMove = new Memento(ref.getGame().getBoard());
 		states.add(postMove);

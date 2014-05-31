@@ -11,17 +11,30 @@ package othello.model;
  *
  */
 public class Move {
+	
+	public Move(int x, int y, Move origin) {
+		setMove(x, y, origin);
+	}
+	
+	public Move(int x, int y)
+	{
+		setMove(x, y);
+	}
+	
+	private Move origin;
 	private int x;
 	private int y;
-	private Action action;
-	
-	public enum Action {ADD, REMOVE };
 
-	public void setMove(int x, int y, Action action)
+	public void setMove(int x, int y, Move origin)
 	{
-		this.action = action;
 		this.x = x;
 		this.y = y;	
+		this.origin = origin;
+	}
+	
+	public void setMove(int x, int y)
+	{
+		this.setMove(x, y, null);
 	}
 
 	public int getX() {
@@ -31,10 +44,11 @@ public class Move {
 	public int getY() {
 		return y;
 	}
-
-	public Action getAction() {
-		return action;
-	};
+	
+	public Move getOrigin() {
+		
+		return origin;
+	}
 	
 	
 }

@@ -1,12 +1,14 @@
 package othello.controller;
 
 import othello.model.GameState;
+import othello.model.RulesSetInterface;
 import othello.view.CmdPrompt;
 
 public class Conciliator {
 
 	private CmdPrompt cmd;
 	private GameState game;
+	private RulesSetInterface rulesSet;
 	
 	public Conciliator(){
 		cmd = new CmdPrompt();
@@ -26,5 +28,15 @@ public class Conciliator {
 	public CmdPrompt getCmd() {
 		return cmd;
 	}
+
+	public RulesSetInterface getRulesSet() {
+		return rulesSet;
+	}
+
+	public void setRulesSet(RulesSetInterface rulesSet) {
+		this.rulesSet = rulesSet;
+	}
+	
+	
 	
 }

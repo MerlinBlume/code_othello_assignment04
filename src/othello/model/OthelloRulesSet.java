@@ -1,7 +1,7 @@
 package othello.model;
 
 
-public class GameRules implements GameRulesInterface {
+public class OthelloRulesSet implements RulesSetInterface {
 
 	private Move m;
 	
@@ -39,12 +39,21 @@ public class GameRules implements GameRulesInterface {
 		
 	}
 
-	public Move getM() {
-		return m;
+	
+
+	@Override
+	public boolean checkMove(Move m) {
+		
+		// if move is valid return true.
+		
+		
+		return false;
 	}
 
-	public void setM(Move m) {
-		this.m = m;
+	@Override
+	public void flipPieces() {
+		// TODO Auto-generated method stub
+		
 	}
 	
 
