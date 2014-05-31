@@ -7,7 +7,7 @@ public class Application {
 			
 	public static void main(String[] args) {
 		
-	
+	//bang bang bang
 		// Matt Jones - can I use the CmdPrompt 'legally' here???
 		CmdPrompt cmd = new CmdPrompt();
 		
