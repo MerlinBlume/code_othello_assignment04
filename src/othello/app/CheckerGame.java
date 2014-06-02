@@ -8,6 +8,13 @@ import othello.model.Disc;
 import othello.model.CheckersRulesSet;
 import othello.model.Move;
 
+/**
+ * The checkers game demonstrates the use AbstractFactory.
+ * 
+ * 
+ */
+
+
 public class CheckerGame extends GameFactory{
 
 	
@@ -36,13 +43,13 @@ public class CheckerGame extends GameFactory{
 		
 		states.add(startState);
 		
-		System.out.println("Your turn " + ref.getGame().getPendingPlayer().getName());
+		//System.out.println("Your turn " + ref.getGame().getPendingPlayer().getName());
 		
 		
 	}
 
 
-
+	
 	@Override
 	boolean initMove() {
 		// TODO Auto-generated method stub
@@ -53,12 +60,16 @@ public class CheckerGame extends GameFactory{
 	boolean askForMove(boolean in) {
 		
 		//TODO: record move.
-		Move mOrigin = new Move(1, 1);
+		
+		Move mOrigin = new Move(ref.getCmd().askForMove(), ref.getCmd().askForMove());
+		Move mFull = new Move(ref.getCmd().askForMove(), ref.getCmd().askForMove(), mOrigin);
+		
+		GameTimer.getInstance().setGameTime();
+		
+		//ref.getRulesSet().checkMove(mOrigin);
+		ref.getRulesSet().isValidMove(mFull, ref.getGame().getBoard());
 		
 		
-		
-		
-		ref.getRulesSet().checkMove(mOrigin);
 		ref.getGame().removeDisc(ref.getCmd().askForMove(), ref.getCmd().askForMove());
 		
 		

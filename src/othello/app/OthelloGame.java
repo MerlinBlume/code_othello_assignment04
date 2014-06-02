@@ -45,7 +45,7 @@ public class OthelloGame extends GameFactory {
 		
 		GameTimer timecount = GameTimer.getInstance();
 		//to-do implement timer;
-		timecount.setNull();
+		//timecount.setNull();
 		
 		return true;
 	}

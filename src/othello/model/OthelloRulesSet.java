@@ -11,11 +11,6 @@ public class OthelloRulesSet implements RulesSetInterface {
 		return null;
 	}
 
-	@Override
-	public boolean isValidMove() {
-		// TODO Auto-generated method stub
-		return false;
-	}
 
 	@Override
 	public boolean isMovePossible() {
@@ -54,6 +49,13 @@ public class OthelloRulesSet implements RulesSetInterface {
 	public void flipPieces() {
 		// TODO Auto-generated method stub
 		
+	}
+
+
+	@Override
+	public boolean isValidMove(Move m, Board b) {
+		// TODO Auto-generated method stub
+		return false;
 	}
 	
 

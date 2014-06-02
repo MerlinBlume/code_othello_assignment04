@@ -27,6 +27,9 @@ class GenericBoard<T extends Comparable<T>> {
 		board.get(x).remove(y);
 		board.get(x).add(y, p);
 	}
+	
+	// we need to compare something.
+	
 	// compared to the old one
 	//
 	// public void addDisc(int x, int y, String colour){
