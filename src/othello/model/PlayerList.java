@@ -16,13 +16,13 @@ public class PlayerList {
 		
 		System.out.println("Please enter a name for White Disk Player: ");
 		this.whitePlayer = new Player(input.nextLine());
-		pOneColour = "W";//input.nextLine();
+		pOneColour = "White";//input.nextLine();
 		whitePlayer.setColour(pOneColour);
 		System.out.println();
 		
 		System.out.println("Please enter a name for Black Disc Player: ");
 		this.blackPlayer = new Player(input.nextLine());
-			blackPlayer.setColour("B");
+			blackPlayer.setColour("Black");
 			// matt jones - deleted the following line cause its redundant.
 			// System.out.println("Your colour is black!");
 		System.out.println();	

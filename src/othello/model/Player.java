@@ -29,11 +29,9 @@ public class Player {
 	 * }
      */
 	
-	public void switchColour(){
-		if (this.colour.equalsIgnoreCase("Black")|| this.colour.equalsIgnoreCase("b"))
-				this.colour = "Black";
-		else
-			this.colour = "White";
+	public void setColour(String colour){
+			
+			this.colour = colour;
 	}
 	
 	

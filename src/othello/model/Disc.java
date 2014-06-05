@@ -28,9 +28,9 @@ public class Disc implements Comparable<Disc> {
 	@Override
 	public String toString() {
 		if (this.colour.equalsIgnoreCase("White") || this.colour.equalsIgnoreCase("w"))
-			this.symbol = "X";
-		else
 			this.symbol = "O";
+		else
+			this.symbol = "X";
 		return symbol;
 	}
 	
