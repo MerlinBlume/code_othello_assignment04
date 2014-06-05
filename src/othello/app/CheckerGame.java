@@ -61,14 +61,11 @@ public class CheckerGame extends GameFactory{
 		while(!allClear)
 		{
 			System.out.println("Your turn " + ref.getGame().getCurrentPlayer().getName());
-			//System.out.println(ref.getGame().getCurrentPlayer().getColour());
 			GameTimer.getInstance().setGameTime();
 			
 			Move mOrigin = new Move(ref.getCmd().askForMove(), ref.getCmd().askForMove());
 		    mFull = new Move(ref.getCmd().askForMove(), ref.getCmd().askForMove(), mOrigin);	
 			
-		    
-		    
 		    if(ref.getRulesSet().isValidMove(mFull, ref.getGame().getBoard(),  ref.getGame().getCurrentPlayer()))
 			{
 		    	allClear=true;
@@ -76,12 +73,27 @@ public class CheckerGame extends GameFactory{
 			}else{
 				ref.getCmd().reportInvalidMove();
 				}
-			
 		}
+		
+		
+		//if you need to jump
+		
+		if(ref.getRulesSet().actionPieces(mFull,ref.getGame().getBoard() ,ref.getGame().getCurrentPlayer()))
+		{
+			int midPointX = (mFull.getX()+mFull.getOrigin().getX())/2; 
+			int midPointY = (mFull.getY()+mFull.getOrigin().getY())/2;
+			Move mini = new Move(midPointX, midPointY);
+			System.out.println("Removing from: " + midPointX + ":" + midPointY);
+			ref.getGame().removeDisc(mini);
+		}
+		
+		 
+		
+		
 		
 		System.out.println(ref.getGame().getCurrentPlayer().getColour());
 		
-		ref.getGame().removeDisc(mFull);	
+		ref.getGame().removeDisc(mFull.getOrigin());	
 		ref.getGame().placeDisc(mFull, ref.getGame().getCurrentPlayer().getColour());
 
 		Memento postMove = new Memento(ref.getGame().getBoard());

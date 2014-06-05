@@ -29,20 +29,20 @@ public class OthelloRulesSet implements RulesSetInterface {
 	}*/
 	
 	@Override
-	public void actionPieces() {
+	public boolean actionPieces(Move m, Board b, Player p) {
 		// TODO Auto-generated method stub
-		
+		return true;
 	}
 
 	
 
 	@Override
 	public boolean checkMove(Move m) {
-		
+		return true;
 		// if move is valid return true.
 		
 		
-		return false;
+	
 	}
 
 	@Override

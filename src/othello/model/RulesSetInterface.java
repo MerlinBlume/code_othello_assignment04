@@ -14,7 +14,7 @@ public interface RulesSetInterface {
 	
 	public void flipPieces();
 	
-	public void actionPieces();
+	public boolean actionPieces(Move m, Board b, Player p);
 	
 	public boolean checkMove(Move m);
 

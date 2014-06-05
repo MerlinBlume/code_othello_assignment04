@@ -110,7 +110,7 @@ public class GameState implements CmdListener {
 	
 	public void removeDisc(Move m)
 	{
-		board.removeDisc(m.getOrigin().getX(), m.getOrigin().getY());
+		board.removeDisc(m.getX(), m.getY());
 	}
 
 	@Override

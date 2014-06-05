@@ -34,9 +34,7 @@ public class CheckersRulesSet implements RulesSetInterface {
 		
 		// can't move another player's piece.
 		if(
-		board.getPiece(m.getOrigin().getX(), m.getOrigin().getY()).compareTo(
-																new Disc(p.getColour()))
-			==0)
+		board.getPiece(m.getOrigin().getX(), m.getOrigin().getY()).compareTo(new Disc(p.getColour()))==0)
 		{
 			return false;
 		}
@@ -79,14 +77,7 @@ public class CheckersRulesSet implements RulesSetInterface {
 				}
 			}
 			
-			
-			if(destinationMoveX == (originMoveX+2) || destinationMoveX == (originMoveX-2))
-			{
-				if(destinationMoveY == (originMoveY+2) || destinationMoveY == (originMoveY-2))
-				{
-					validMove = true;
-				}
-			}
+			if (!validMove){validMove = actionPieces(tempMove, board, p);}
 			
 			tempMove = tempMove.getOrigin();
 		}
@@ -117,9 +108,38 @@ public class CheckersRulesSet implements RulesSetInterface {
 		
 	}*/
 	
+	
+	/**
+	 * The actionPieces method will return true if the object in the middle of a move 
+	 * is a 'jumpable' piece.
+	 */
+	
 	@Override
-	public void actionPieces() {
-		// TODO Auto-generated method stub
+	public boolean actionPieces(Move m, Board b, Player p) {
+		
+		int originMoveX = m.getOrigin().getX();
+		int originMoveY = m.getOrigin().getY();
+		
+		int destinationMoveX = m.getX();
+		int destinationMoveY = m.getY();
+		
+		if(destinationMoveX == (originMoveX+2) || destinationMoveX == (originMoveX-2))
+		{
+			if(destinationMoveY == (originMoveY+2) || destinationMoveY == (originMoveY-2))
+			{
+				int midpointX = (destinationMoveX+originMoveX)/2;
+				int midpointY = (destinationMoveY+originMoveY)/2;
+				
+				
+				if(b.getPiece(midpointX, midpointY).compareTo(new Disc(p.getColour()))==0)
+				{
+					return true;
+				}
+			}
+			
+		}
+		
+		return false;
 		
 	}
 
