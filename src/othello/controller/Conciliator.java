@@ -21,7 +21,7 @@ public class Conciliator {
 	
 	public String whichPlayerGoesFirst() {
 		//System.out.println("It's black's turn!");
-		String black = "b";
+		String black = "Black";
 		return black;
 	}
 

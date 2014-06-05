@@ -50,8 +50,9 @@ public class Disc implements Comparable<Disc> {
 		System.out.println("Comparing: " + this.colour + " to: " + o.colour);
 		
 		// same colour
+		if(o.colour==null) return -1;
 		if(this.colour == o.colour) return 1;
-		
+
 		// different colour
 		return 0;
 	}

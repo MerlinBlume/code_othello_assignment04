@@ -22,7 +22,7 @@ public class Player {
 	 * Took this out and made it consistant with "Disc" as otherwise it is harder to compare.
 	 *  Matt Jones.
 	 *  public void setColour(String colour) {
-	 *	if(colour.equalsIgnoreCase("b") || colour.equalsIgnoreCase("w"))
+	 *	if(colour.equalsIgnoreCase("Black") || colour.equalsIgnoreCase("w"))
 	 *		this.colour = colour;
 	 *	else
 	 *		System.out.print("Please enter a valid colour.");

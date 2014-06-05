@@ -48,11 +48,11 @@ public class GameState implements CmdListener {
 	}
 	
 	public void setCurrentPlayer(String colour){
-		if(colour.equalsIgnoreCase("W")){
+		if(colour.equalsIgnoreCase("White")){
 			this.currentPlayer = playerList.getWhitePlayer();
 			this.pendingPlayer = playerList.getBlackPlayer();
 		}
-		else if(colour.equalsIgnoreCase("B")){
+		else if(colour.equalsIgnoreCase("Black")){
 			this.currentPlayer = playerList.getBlackPlayer();
 			this.pendingPlayer = playerList.getWhitePlayer();
 		}
@@ -61,9 +61,16 @@ public class GameState implements CmdListener {
 	}
 	
 	public void switchPlayers(){
-		Player oldPlayer = currentPlayer;
-		currentPlayer = pendingPlayer;
-		pendingPlayer = oldPlayer;
+		
+		if(currentPlayer.getColour().equalsIgnoreCase("White"))
+		{
+			setCurrentPlayer("Black");
+		} else
+		{
+			setCurrentPlayer("White");
+		}
+		
+		
 	}
 	
 	public Player getCurrentPlayer(){

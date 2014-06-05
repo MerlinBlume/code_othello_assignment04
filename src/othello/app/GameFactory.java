@@ -3,13 +3,7 @@ package othello.app;
 public abstract class GameFactory {
 
 	static GameFactory game;
-	/*
-	 *  Matt Jones, moved this into a new ENUM class
-	 *  2014-MAY-29 @ 20:40.
-	 *  public static enum GameTitle {
-	 *   OTHELLO, CHECKER 
-	 *  }
-	 */
+
 	
 	static GameFactory create(GameTitle title){
 	

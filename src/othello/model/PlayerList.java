@@ -12,17 +12,16 @@ public class PlayerList {
 	PlayerList(){
 		
 		input = new Scanner(System.in);
-		String pOneColour;
 		
 		System.out.println("Please enter a name for White Disk Player: ");
 		this.whitePlayer = new Player(input.nextLine());
-		pOneColour = "White";//input.nextLine();
-		whitePlayer.setColour(pOneColour);
+		 //input.nextLine();
+		whitePlayer.setColour("White");
 		System.out.println();
 		
 		System.out.println("Please enter a name for Black Disc Player: ");
 		this.blackPlayer = new Player(input.nextLine());
-
+        blackPlayer.setColour("Black");
 		System.out.println();	
 		
 	}
@@ -30,7 +29,7 @@ public class PlayerList {
 	public String getPlayerName(String colour){
 		String name;
 		
-		if(colour.equalsIgnoreCase("b"))
+		if(colour.equalsIgnoreCase("Black"))
 			name = blackPlayer.getName();
 		else
 			name = whitePlayer.getName();

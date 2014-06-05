@@ -26,6 +26,12 @@ public class CheckersRulesSet implements RulesSetInterface {
 			
 		}
 		
+		//destination must be vacant.
+		if(board.getPiece(m.getX(), m.getY())!=null)
+		{
+			return false;
+		}
+		
 		// can't move another player's piece.
 		if(
 		board.getPiece(m.getOrigin().getX(), m.getOrigin().getY()).compareTo(
@@ -74,9 +80,9 @@ public class CheckersRulesSet implements RulesSetInterface {
 			}
 			
 			
-			if(destinationMoveX == (originMoveX+3) || destinationMoveX == (originMoveX-3))
+			if(destinationMoveX == (originMoveX+2) || destinationMoveX == (originMoveX-2))
 			{
-				if(destinationMoveY == (originMoveY+3) || destinationMoveY == (originMoveY-3))
+				if(destinationMoveY == (originMoveY+2) || destinationMoveY == (originMoveY-2))
 				{
 					validMove = true;
 				}

@@ -40,7 +40,7 @@ public class CheckerGame extends GameFactory{
 		states.add(startState);
 		
 		
-		//System.out.println("Your turn " + ref.getGame().getPendingPlayer().getName());
+		System.out.println("Your turn " + ref.getGame().getPendingPlayer().getName());
 		
 		
 	}
@@ -61,6 +61,7 @@ public class CheckerGame extends GameFactory{
 		while(!allClear)
 		{
 			System.out.println("Your turn " + ref.getGame().getCurrentPlayer().getName());
+			//System.out.println(ref.getGame().getCurrentPlayer().getColour());
 			GameTimer.getInstance().setGameTime();
 			
 			Move mOrigin = new Move(ref.getCmd().askForMove(), ref.getCmd().askForMove());
@@ -77,6 +78,8 @@ public class CheckerGame extends GameFactory{
 				}
 			
 		}
+		
+		System.out.println(ref.getGame().getCurrentPlayer().getColour());
 		
 		ref.getGame().removeDisc(mFull);	
 		ref.getGame().placeDisc(mFull, ref.getGame().getCurrentPlayer().getColour());
@@ -105,9 +108,7 @@ public class CheckerGame extends GameFactory{
 
 	@Override
 	boolean finalizeMove(boolean in) {
-		
-		if(in != true)ref.getGame().switchPlayers();
-		
+		ref.getGame().switchPlayers();
 		
 		
 		// implement a rule check here?
