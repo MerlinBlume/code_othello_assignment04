@@ -55,6 +55,14 @@ public class CmdPrompt implements CmdListener {
 		return GameTitle.OTHELLO;
 		}
 	}
-	
-	
+		
+	public void reportInvalidMove()
+	{
+		System.out.println("Invalid Move, try again.");
+		
+	}
+		
 }
+	
+	
+

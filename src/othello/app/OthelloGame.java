@@ -23,7 +23,6 @@ public class OthelloGame extends GameFactory {
 		// when new othello game is created, we define the ruleset.
 		ref.setRulesSet(new OthelloRulesSet());
 		
-		
 		// why we no init othello boardies heres? - Matt Jones.
 		// seems to works??
 		ref.getGame().getBoard().addDisc(3, 3, new Disc("White"));
@@ -54,11 +53,11 @@ public class OthelloGame extends GameFactory {
 	boolean askForMove(boolean in) {
 		
 		
-		Move m = new Move(1, 1);
+		Move move = new Move(ref.getCmd().askForMove(), ref.getCmd().askForMove());
 		
 		
 		// function askForMove() could return boolean by itself e.g. if no correct move has been supplied
-		ref.getGame().placeDisc(ref.getCmd().askForMove(), ref.getCmd().askForMove(), ref.getGame().getCurrentPlayer().getColour());
+		ref.getGame().placeDisc(move, ref.getGame().getCurrentPlayer().getColour());
 		
 		return true;
 	}

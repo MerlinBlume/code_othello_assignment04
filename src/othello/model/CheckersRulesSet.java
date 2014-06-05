@@ -16,11 +16,27 @@ public class CheckersRulesSet implements RulesSetInterface {
 	}
 
 	@Override
-	public boolean isValidMove(Move m, Board board) {
+	public boolean isValidMove(Move m, Board board, Player p) {
 		boolean validMove = true;
+		// origin can't be empty.
+		
+		if(board.getPiece(m.getOrigin().getX(), m.getOrigin().getY())==null)
+		{
+			System.out.println("### DEBUG: Origin can not be empty ###");
+			return false;
+			
+		}
+		
+		// can't move another players piece.
+		System.out.println("###");		
+		System.out.println(board.getPiece(m.getOrigin().getX(), m.getOrigin().getY()).compareTo(new Disc(p.getColour())));
+		System.out.println("###");
+		
+		
+		
 		if(GameTimer.getInstance().getTime()>(System.currentTimeMillis()+60000))
 		{
-			validMove = false;
+			validMove = true;
 		}
 		
 		// TODO Check if the move is diag and to left or right.
@@ -58,7 +74,14 @@ public class CheckersRulesSet implements RulesSetInterface {
 		return validMove;
 	}
 
+	
+	
+	
 	@Override
+	
+	
+	// logic to see if there is an available move possible??
+	
 	public boolean isMovePossible() {
 		// TODO Auto-generated method stub
 		return false;

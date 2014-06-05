@@ -94,14 +94,16 @@ public class GameState implements CmdListener {
 		return board;
 	}
 	
-	public void placeDisc(int x, int y, String colour){
-		board.addDisc(x, y, new Disc(colour));
+	public void placeDisc(Move m, String colour){
+		
+		
+		board.addDisc(m.getX(), m.getY(), new Disc(colour));
 	}
 	
 	
-	public void removeDisc(int x, int y)
+	public void removeDisc(Move m)
 	{
-		board.removeDisc(x, y);
+		board.removeDisc(m.getOrigin().getX(), m.getOrigin().getY());
 	}
 
 	@Override

@@ -31,17 +31,14 @@ public class CheckerGame extends GameFactory{
 		ref.setRulesSet(new CheckersRulesSet());
 		
 		
-		// why we no init checkers heres? - Matt Jones.
-		// seems to works??
-		
 	    boardSetup();
 		
-		// bah! I did it.
 		
 		ref.getGame().getBoard().printBoard();
 		Memento startState = new Memento(ref.getGame().getBoard());
 		
 		states.add(startState);
+		
 		
 		//System.out.println("Your turn " + ref.getGame().getPendingPlayer().getName());
 		
@@ -58,27 +55,36 @@ public class CheckerGame extends GameFactory{
 
 	@Override
 	boolean askForMove(boolean in) {
+		Move mFull = null;
 		
-		//TODO: record move.
+		boolean allClear = false;
+		while(!allClear)
+		{
+			System.out.println("Your turn " + ref.getGame().getCurrentPlayer().getName());
+			GameTimer.getInstance().setGameTime();
+			
+			Move mOrigin = new Move(ref.getCmd().askForMove(), ref.getCmd().askForMove());
+		    mFull = new Move(ref.getCmd().askForMove(), ref.getCmd().askForMove(), mOrigin);	
+			
+		    
+		    
+		    if(ref.getRulesSet().isValidMove(mFull, ref.getGame().getBoard(),  ref.getGame().getCurrentPlayer()))
+			{
+		    	allClear=true;
+		    	
+			}else{
+				ref.getCmd().reportInvalidMove();
+				}
+			
+		}
 		
-		Move mOrigin = new Move(ref.getCmd().askForMove(), ref.getCmd().askForMove());
-		Move mFull = new Move(ref.getCmd().askForMove(), ref.getCmd().askForMove(), mOrigin);
-		
-		GameTimer.getInstance().setGameTime();
-		
-		//ref.getRulesSet().checkMove(mOrigin);
-		ref.getRulesSet().isValidMove(mFull, ref.getGame().getBoard());
-		
-		
-		ref.getGame().removeDisc(ref.getCmd().askForMove(), ref.getCmd().askForMove());
-		
-		
-		ref.getGame().placeDisc(ref.getCmd().askForMove(), ref.getCmd().askForMove(), ref.getGame().getCurrentPlayer().getColour());
-		
-		
+		ref.getGame().removeDisc(mFull);	
+		ref.getGame().placeDisc(mFull, ref.getGame().getCurrentPlayer().getColour());
+
 		Memento postMove = new Memento(ref.getGame().getBoard());
 		states.add(postMove);
-		return true;
+		
+		return allClear;
 	}
 
 	@Override
@@ -101,7 +107,7 @@ public class CheckerGame extends GameFactory{
 	boolean finalizeMove(boolean in) {
 		
 		if(in != true)ref.getGame().switchPlayers();
-		System.out.println("Your turn " + ref.getGame().getPendingPlayer().getName());
+		
 		
 		
 		// implement a rule check here?

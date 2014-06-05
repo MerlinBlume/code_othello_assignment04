@@ -1,7 +1,5 @@
 package othello.model;
 
-//import com.sun.xml.internal.bind.v2.runtime.RuntimeUtil.ToStringAdapter;
-
 public class Disc implements Comparable<Disc> {
 	
 	private String colour;
@@ -48,6 +46,8 @@ public class Disc implements Comparable<Disc> {
 
 	@Override
 	public int compareTo(Disc o) {
+		
+		System.out.println("Comparing: " + this.colour + " to: " + o.colour);
 		
 		// same colour
 		if(this.colour == o.colour) return 1;

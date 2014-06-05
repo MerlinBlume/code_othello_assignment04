@@ -53,7 +53,7 @@ public class OthelloRulesSet implements RulesSetInterface {
 
 
 	@Override
-	public boolean isValidMove(Move m, Board b) {
+	public boolean isValidMove(Move m, Board b, Player p) {
 		// TODO Auto-generated method stub
 		return false;
 	}

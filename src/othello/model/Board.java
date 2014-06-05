@@ -74,12 +74,6 @@ public class Board extends GenericBoard<Disc> {
 	public Board(int dimension) {
 	
 		super(dimension);
-		/*
-		 * Removing Wizard code. Matt Jones 2014-05-29 2112'ish
-		addDisc(3, 3, new Disc("White"));
-		addDisc(3, 4, new Disc("Black"));
-		addDisc(4, 4, new Disc("White"));
-		addDisc(4, 3, new Disc("Black"));
-		*/
+
 	}
 }
