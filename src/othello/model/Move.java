@@ -1,15 +1,6 @@
 package othello.model;
 
 
-/**
- * 
- * @author Matt Jones
- * 
- * The move class can be used to store a move, from the command line?
- * This would prevent us going crazy using integers??
- * just an idea?
- *
- */
 public class Move {
 	
 	public Move(int x, int y, Move origin) {

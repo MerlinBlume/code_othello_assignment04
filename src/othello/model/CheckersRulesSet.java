@@ -11,63 +11,77 @@ public class CheckersRulesSet implements RulesSetInterface {
 	
 	@Override
 	public String whichPlayerGoesFirst() {
-		// TODO Auto-generated method stub
+
 		return null;
 	}
 
 	@Override
 	public boolean isValidMove(Move m, Board board, Player p) {
-		boolean validMove = true;
+		boolean validMove = false;
 		// origin can't be empty.
 		
 		if(board.getPiece(m.getOrigin().getX(), m.getOrigin().getY())==null)
 		{
-			System.out.println("### DEBUG: Origin can not be empty ###");
 			return false;
 			
 		}
 		
-		// can't move another players piece.
-		System.out.println("###");		
-		System.out.println(board.getPiece(m.getOrigin().getX(), m.getOrigin().getY()).compareTo(new Disc(p.getColour())));
-		System.out.println("###");
+		// can't move another player's piece.
+		if(
+		board.getPiece(m.getOrigin().getX(), m.getOrigin().getY()).compareTo(
+																new Disc(p.getColour()))
+			==0)
+		{
+			return false;
+		}
+
 		
 		
+		// player can't take too long
 		
 		if(GameTimer.getInstance().getTime()>(System.currentTimeMillis()+60000))
 		{
-			validMove = true;
+			return false;
 		}
 		
-		// TODO Check if the move is diag and to left or right.
+		
 		
 		// check each move is valid in a loop
+		// this is to handle situation where jumping allows
+		// more moves
+		// TODO: Implement jumping.
 		
 		Move tempMove = m;
 		while(tempMove.getOrigin()!=null)
 		{
 			int originMoveX = tempMove.getOrigin().getX();
-			int destinationMoveX = tempMove.getY();
-			
 			int originMoveY = tempMove.getOrigin().getY();
+			
+			int destinationMoveX = tempMove.getX();
 			int destinationMoveY = tempMove.getY();
 			
-			// check it was a diag move.
+			// check it was a diag proportional move.
 			
-			if(originMoveX==destinationMoveX || originMoveY==destinationMoveY)
+
+			
+			
+			if(destinationMoveX == (originMoveX+1) || destinationMoveX == (originMoveX-1))
 			{
-				// can't move in a straight line, sorry!
-				validMove = false;
-				
-				System.out.println("DEBUG: Move not horizontal");
+				if(destinationMoveY == originMoveY+1 || destinationMoveY == originMoveY-1)
+				{
+					validMove =  true;
+				}
 			}
 			
-			if(destinationMoveX>(originMoveX+1) || destinationMoveX<(originMoveX-1))
+			
+			if(destinationMoveX == (originMoveX+3) || destinationMoveX == (originMoveX-3))
 			{
-				// can't be <> 3.
-				// do a jumpCheck.
+				if(destinationMoveY == (originMoveY+3) || destinationMoveY == (originMoveY-3))
+				{
+					validMove = true;
+				}
 			}
-				
+			
 			tempMove = tempMove.getOrigin();
 		}
 		
@@ -128,3 +142,7 @@ public class CheckersRulesSet implements RulesSetInterface {
 	
 
 }
+
+
+
+
