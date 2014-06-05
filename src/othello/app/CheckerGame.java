@@ -8,21 +8,14 @@ import othello.model.Disc;
 import othello.model.CheckersRulesSet;
 import othello.model.Move;
 
-/**
- * The checkers game demonstrates the use AbstractFactory.
- * 
- * 
- */
-
 
 public class CheckerGame extends GameFactory{
-
 	
 	final Conciliator ref;
 	List<Memento> states;
-	//Memento state;
+	Memento state;
 	
-	
+	// here we get the game extablished.
 	public CheckerGame() {
 		// initialization details ...
 		
@@ -30,29 +23,23 @@ public class CheckerGame extends GameFactory{
 		ref = new Conciliator();
 		ref.setRulesSet(new CheckersRulesSet());
 		
-		
 	    boardSetup();
-		
-		
+				
 		ref.getGame().getBoard().printBoard();
 		Memento startState = new Memento(ref.getGame().getBoard());
 		
 		states.add(startState);
 		
-		
-		System.out.println("Your turn " + ref.getGame().getPendingPlayer().getName());
-		
-		
 	}
 
-
-	
+	//could code initalisation here, check some rules, etc.
 	@Override
 	boolean initMove() {
-		// TODO Auto-generated method stub
+		// TODO 
 		return false;
 	}
 
+	// doing most work here - getting and executing move
 	@Override
 	boolean askForMove(boolean in) {
 		Move mFull = null;
@@ -75,8 +62,7 @@ public class CheckerGame extends GameFactory{
 				}
 		}
 		
-		
-		//if you need to jump
+		//if you you need to jump, the below code will need to be executed.
 		
 		if(ref.getRulesSet().actionPieces(mFull,ref.getGame().getBoard() ,ref.getGame().getCurrentPlayer()))
 		{
@@ -87,12 +73,8 @@ public class CheckerGame extends GameFactory{
 			ref.getGame().removeDisc(mini);
 		}
 		
-		 
-		
-		
 		
 		System.out.println(ref.getGame().getCurrentPlayer().getColour());
-		
 		ref.getGame().removeDisc(mFull.getOrigin());	
 		ref.getGame().placeDisc(mFull, ref.getGame().getCurrentPlayer().getColour());
 
@@ -102,6 +84,7 @@ public class CheckerGame extends GameFactory{
 		return allClear;
 	}
 
+	// response method completes any updates that need to occur before turn ends.
 	@Override
 	boolean respond(boolean in) {
 		ref.getGame().getBoard().printBoard();
@@ -109,23 +92,34 @@ public class CheckerGame extends GameFactory{
 		return false;
 	}
 
+	// undo?
 	@Override
 	boolean askForUndo(boolean in) {
 		
 		//aint working. :(
 		
+		state = ref.getGame().setState(ref.getGame().getBoard());
+		states.add(state);
+		
+		boolean undo = ref.getCmd().askToUndo();				
+		if(undo==true){
+			int i = ref.getCmd().undoMoves();
+			ref.getGame().setMemento(states.get(i));	
+			ref.getGame().getState().printBoard();
+			
+			return true;
+		}
+		
 		return false;
-	}
+		}
 	
-
+	// end of turn behaviours in finalizeMove. 
 	@Override
 	boolean finalizeMove(boolean in) {
 		ref.getGame().switchPlayers();
 		
-		
 		// implement a rule check here?
-		//if(ref.getGame().getNumBlack() < 32) return false;
-		
+		// end game, etc.
 		
 		return true;
 		

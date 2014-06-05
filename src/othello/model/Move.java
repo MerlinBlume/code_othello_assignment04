@@ -1,6 +1,6 @@
 package othello.model;
 
-
+// basic helper class for less integer management
 public class Move {
 	
 	public Move(int x, int y, Move origin) {

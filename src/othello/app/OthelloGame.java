@@ -42,6 +42,7 @@ public class OthelloGame extends GameFactory {
 	@Override
 	boolean initMove() {
 		
+		@SuppressWarnings("unused")
 		GameTimer timecount = GameTimer.getInstance();
 		//to-do implement timer;
 		//timecount.setNull();

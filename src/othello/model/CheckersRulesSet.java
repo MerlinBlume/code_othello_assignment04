@@ -1,7 +1,5 @@
 package othello.model;
 
-import javax.print.attribute.standard.Destination;
-
 import othello.app.GameTimer;
 
 

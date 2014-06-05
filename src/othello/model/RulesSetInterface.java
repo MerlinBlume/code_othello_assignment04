@@ -2,9 +2,6 @@ package othello.model;
 
 
 public interface RulesSetInterface {
-
-	// add params.
-	
 	
 	public String whichPlayerGoesFirst();
 	
@@ -17,8 +14,5 @@ public interface RulesSetInterface {
 	public boolean actionPieces(Move m, Board b, Player p);
 	
 	public boolean checkMove(Move m);
-
-	//boolean isValidMove();
-	
 	
 }

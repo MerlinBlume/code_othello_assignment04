@@ -3,8 +3,7 @@ package othello.model;
 
 public class OthelloRulesSet implements RulesSetInterface {
 
-	private Move m;
-	
+
 	@Override
 	public String whichPlayerGoesFirst() {
 		// TODO Auto-generated method stub
@@ -18,23 +17,12 @@ public class OthelloRulesSet implements RulesSetInterface {
 		return false;
 	}
 
-/*	
- * Removed this to create a more generic actionPieces() method
- * Matt Jones
- * 
- * @Override
-	public void flipPieces() {
-		// TODO Auto-generated method stub
-		
-	}*/
 	
 	@Override
 	public boolean actionPieces(Move m, Board b, Player p) {
 		// TODO Auto-generated method stub
 		return true;
 	}
-
-	
 
 	@Override
 	public boolean checkMove(Move m) {

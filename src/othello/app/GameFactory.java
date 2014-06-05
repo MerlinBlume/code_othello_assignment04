@@ -4,7 +4,7 @@ public abstract class GameFactory {
 
 	static GameFactory game;
 
-	
+	// generate the right type of game.
 	static GameFactory create(GameTitle title){
 	
 		switch (title) {
