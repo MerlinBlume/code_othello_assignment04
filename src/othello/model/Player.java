@@ -18,13 +18,23 @@ public class Player {
 		return colour;
 	}
 
-	public void setColour(String colour) {
-		if(colour.equalsIgnoreCase("b") || colour.equalsIgnoreCase("w"))
-			this.colour = colour;
+	/*
+	 * Took this out and made it consistant with "Disc" as otherwise it is harder to compare.
+	 *  Matt Jones.
+	 *  public void setColour(String colour) {
+	 *	if(colour.equalsIgnoreCase("b") || colour.equalsIgnoreCase("w"))
+	 *		this.colour = colour;
+	 *	else
+	 *		System.out.print("Please enter a valid colour.");
+	 * }
+     */
+	
+	public void switchColour(){
+		if (this.colour.equalsIgnoreCase("Black")|| this.colour.equalsIgnoreCase("b"))
+				this.colour = "Black";
 		else
-			System.out.print("Please enter a valid colour.");
+			this.colour = "White";
 	}
-
 	
 	
 }
