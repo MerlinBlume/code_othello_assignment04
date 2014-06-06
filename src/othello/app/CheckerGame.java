@@ -116,8 +116,10 @@ public class CheckerGame extends GameFactory{
 	}
 
 	/**
-	 * This method should allow user to take advantage of undo functions.
-	 * This is implemented using Memento
+	 * This method *should* allow user to take advantage of undo functions.
+	 * This is implemented using Memento.
+	 * 
+	 * At this stage, Memento is not coded correctly and does not operate.
 	 * .
 	 * @see othello.app.GameFactory#askForUndo(boolean)
 	 * @see Memento
@@ -125,7 +127,6 @@ public class CheckerGame extends GameFactory{
 	@Override
 	boolean askForUndo(boolean in) {
 		
-		//aint working. :(
 		
 		state = ref.getGame().setState(ref.getGame().getBoard());
 		states.add(state);
