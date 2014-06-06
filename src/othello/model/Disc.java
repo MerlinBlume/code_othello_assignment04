@@ -1,5 +1,13 @@
 package othello.model;
 
+/**
+ * Disc is a Comparable object used to represent 
+ * game pieces the player can place onto a Board.
+ * 
+ *
+ */
+
+
 public class Disc implements Comparable<Disc> {
 	
 	private String colour; // the colour of the disc

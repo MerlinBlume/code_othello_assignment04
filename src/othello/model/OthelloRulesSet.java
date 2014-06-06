@@ -11,12 +11,21 @@ public class OthelloRulesSet implements RulesSetInterface {
 	}
 
 
+	
+	/**
+	 * The intention for this method is to check if there are any possible moves.
+	 * this method has not been implemented.
+	 */
 	@Override
 	public boolean isMovePossible() {
 		// TODO Auto-generated method stub
 		return false;
 	}
 
+	/**
+	 * The intention for this method is to check if any actions need to be ran on the board.
+	 * It has not been implemented.
+	 */
 	
 	@Override
 	public boolean actionPieces(Move m, Board b, Player p) {
@@ -24,6 +33,11 @@ public class OthelloRulesSet implements RulesSetInterface {
 		return true;
 	}
 
+	
+	/**
+	 * The intention for this method is to check if the move is valid.
+	 */
+	
 	@Override
 	public boolean checkMove(Move m) {
 		return true;
@@ -31,12 +45,21 @@ public class OthelloRulesSet implements RulesSetInterface {
 			
 	}
 
+	/**
+	 * The intention for this method is to check if peices need to be flipped.
+	 * replaced by actionPieces.
+	 * @deprecated
+	 */
 	@Override
 	public void flipPieces() {
 		// TODO Auto-generated method stub
 		
 	}
 
+	
+	/**
+	 * The intention for this method is to check if the move is valid.
+	 */
 
 	@Override
 	public boolean isValidMove(Move m, Board b, Player p) {
