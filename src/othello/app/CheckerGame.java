@@ -8,6 +8,14 @@ import othello.model.Disc;
 import othello.model.CheckersRulesSet;
 import othello.model.Move;
 
+/**
+ * CheckersGame is a concrete implementation used by the GameFactory
+ * It can be used to play a game of Checkers.
+ * 
+ * @since 4.0
+ * 
+ * 
+ */
 
 public class CheckerGame extends GameFactory{
 	
@@ -32,14 +40,26 @@ public class CheckerGame extends GameFactory{
 		
 	}
 
-	//could code initalisation here, check some rules, etc.
+	/**
+	 * The initMove is not used in this implementation, but could 
+	 * provide initialization of move functionality. 
+	 * 
+	 * @since 4.0
+	 * @see GameFactory
+	 */
+	
+	
 	@Override
 	boolean initMove() {
 		// TODO 
 		return false;
 	}
 
-	// doing most work here - getting and executing move
+	/**
+	 * this method asks the user to move, and checks rules.
+	 * @see GameFactory
+	 */
+	
 	@Override
 	boolean askForMove(boolean in) {
 		Move mFull = null;
@@ -84,7 +104,10 @@ public class CheckerGame extends GameFactory{
 		return allClear;
 	}
 
-	// response method completes any updates that need to occur before turn ends.
+	/**
+	 *  Response method completes any updates that need to occur before turn ends.
+	 *  @see GameFactory
+	 */
 	@Override
 	boolean respond(boolean in) {
 		ref.getGame().getBoard().printBoard();
@@ -92,7 +115,13 @@ public class CheckerGame extends GameFactory{
 		return false;
 	}
 
-	// undo?
+	/**
+	 * This method should allow user to take advantage of undo functions.
+	 * This is implemented using Memento
+	 * .
+	 * @see othello.app.GameFactory#askForUndo(boolean)
+	 * @see Memento
+	 */
 	@Override
 	boolean askForUndo(boolean in) {
 		
@@ -113,7 +142,12 @@ public class CheckerGame extends GameFactory{
 		return false;
 		}
 	
-	// end of turn behaviours in finalizeMove. 
+	/**
+	 * 
+	 * This should be the code that completes the move/turn of the game.
+	 * 
+	 * @see othello.app.GameFactory#finalizeMove(boolean)
+	 */
 	@Override
 	boolean finalizeMove(boolean in) {
 		ref.getGame().switchPlayers();

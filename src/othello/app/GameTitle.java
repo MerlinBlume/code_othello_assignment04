@@ -1,6 +1,12 @@
 package othello.app;
 
-// should have used more Enum's I went CRAZY with the string abuse for colour!
+/**
+ * That's the Name of the Game!
+ * Nice and easy to add to Enum so that we can track want game the user would like to play.
+ * @since 4.0
+ *
+ */
+
 public enum GameTitle {
 	OTHELLO, CHECKERS
 

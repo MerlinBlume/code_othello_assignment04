@@ -8,8 +8,17 @@ import othello.model.Disc;
 import othello.model.Move;
 import othello.model.OthelloRulesSet;
 
+/**
+ *  OthelloGame implementation (not quite fully implemented)
+ *  
+ *  
+ *  @since 4.0
+ *  
+ */
+
 public class OthelloGame extends GameFactory {
 
+	
 	final Conciliator ref;
 	List<Memento> states;
 	Memento state;
@@ -40,16 +49,25 @@ public class OthelloGame extends GameFactory {
 	}
 	
 	@Override
+	
+	
+	/**
+	 * Rough mustering of implementation here. 
+	 */
 	boolean initMove() {
 		
 		@SuppressWarnings("unused")
 		GameTimer timecount = GameTimer.getInstance();
-		//to-do implement timer;
-		//timecount.setNull();
+
 		
 		return true;
 	}
 
+	/**
+	 * Gets the move from the user.
+	 * 
+	 * @see othello.app.GameFactory#askForMove(boolean)
+	 */
 	@Override
 	boolean askForMove(boolean in) {
 		
@@ -63,11 +81,16 @@ public class OthelloGame extends GameFactory {
 		return true;
 	}
 
+	
+	/**
+	 * 	In this case the respond is rather simple. But since we are using the template method it's easy 
+	 *	to allocate where extensions to the respond should be added.
+	 *
+	 */
 	@Override
 	boolean respond(boolean in) {
 		
-		// In this case the respond is rather simple. But since we are using the template method it's easy 
-		// to allocate where extensions to the respond should be added.
+
 		ref.getGame().getBoard().printBoard();
 		
 		return true;
