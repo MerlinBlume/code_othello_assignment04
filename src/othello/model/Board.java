@@ -46,8 +46,8 @@ class GenericBoard<T extends Comparable<T>> {
 	}
 	
 	
-	public <T> Comparable<T> getPiece(int x, int y) {
-		return (Comparable<T>) board.get(x).get(y);
+	public T getPiece(int x, int y) {
+		return (T) board.get(x).get(y);
 	}
 	
 	
