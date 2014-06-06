@@ -28,9 +28,7 @@ public class OthelloRulesSet implements RulesSetInterface {
 	public boolean checkMove(Move m) {
 		return true;
 		// if move is valid return true.
-		
-		
-	
+			
 	}
 
 	@Override

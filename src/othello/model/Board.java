@@ -2,6 +2,18 @@ package othello.model;
 
 import java.util.ArrayList;
 
+/**
+ * The GenericBoard class demonstrates the use of Generics.
+ * 
+ * The Board is used as a Grid, to place pieces on. 
+ * 
+ * This could be extended to place any type of piece on, to make diferent types of games operate.
+ * 
+ * @since 4.0
+ *
+ * @param <T>
+ */
+
 class GenericBoard<T extends Comparable<T>> {
 
 	private int dimension;
@@ -22,7 +34,12 @@ class GenericBoard<T extends Comparable<T>> {
 		}
 	}
 	
-	// this method is generic
+	/**
+	 * A Generic method that adds a disc to the board, at a given position.
+	 * @param x The X axis of the placement.
+	 * @param y the Y axis of the placement.
+	 * @param p the Piece to place.
+	 */
 	public void addDisc(int x, int y, Comparable<T> p){
 		board.get(x).remove(y);
 		board.get(x).add(y, p);
@@ -37,7 +54,14 @@ class GenericBoard<T extends Comparable<T>> {
 	// }
 	
 	// had to give the board special powers to allow disc removal.
-	
+
+	/**
+	 * Removes a piece from the board.
+	 * 
+	 * 
+	 * @param x X axis of location to remove from
+	 * @param y Y axis of location to remove from
+	 */
 	public void removeDisc(int x, int y)
 	{
 		
@@ -45,13 +69,22 @@ class GenericBoard<T extends Comparable<T>> {
 		//board.get(x).add(null);
 	}
 	
-	
+	/**
+	 * Gets a piece from the board.
+	 * 
+	 * @param x the X axis to get the piece from.
+	 * @param y the Y axis to get the piece from.
+	 * @return the piece from the place specified.
+	 */
 	public T getPiece(int x, int y) {
 		return (T) board.get(x).get(y);
 	}
 	
 	
-	
+	/**
+	 * Prints the board to Standard output.
+	 * 
+	 */
 	public void printBoard() {
 		for(int i = 0; i < dimension; i++){
 			for(int j = 0; j < dimension; j++){
@@ -64,11 +97,17 @@ class GenericBoard<T extends Comparable<T>> {
 		}
 	}
 	
+	
 	public T checkField(){
 		return null;
 	}
 }
 
+/**
+ * 
+ * Board is an example of extension of the Generic board.
+ *
+ */
 public class Board extends GenericBoard<Disc> {
 	
 	public Board(int dimension) {
