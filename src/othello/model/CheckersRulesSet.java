@@ -2,6 +2,15 @@ package othello.model;
 
 import othello.app.GameTimer;
 
+/**
+ * CheckersRuleSet is an implemetation of the RuleSetInteface, that provides rules for Checkers.
+ * The rules, are turn based checked. 
+ * 
+ * The CheckersRuleSet is part of the Strategy Design Pattern. 
+ * 
+ * @since 4.0
+ *
+ */
 
 public class CheckersRulesSet implements RulesSetInterface {
 
@@ -13,6 +22,14 @@ public class CheckersRulesSet implements RulesSetInterface {
 		return null;
 	}
 
+	
+	/**
+	 * Checks if the move is valid, ie: it can be played.
+	 * 
+	 * @param m The move (could be an iterated set of moves).
+ 	 * @param board The board at time of play (used to check against)
+	 * @param p The player at time of play.
+	 */
 	@Override
 	public boolean isValidMove(Move m, Board board, Player p) {
 		boolean validMove = false;
@@ -69,7 +86,7 @@ public class CheckersRulesSet implements RulesSetInterface {
 			
 			if(destinationMoveX == (originMoveX+1) || destinationMoveX == (originMoveX-1))
 			{
-				if(destinationMoveY == originMoveY+1 || destinationMoveY == originMoveY-1)
+				if(destinationMoveY == (originMoveY+1) || destinationMoveY == (originMoveY-1))
 				{
 					validMove =  true;
 				}
@@ -85,27 +102,20 @@ public class CheckersRulesSet implements RulesSetInterface {
 
 	
 	
+
+	
+	
+	/**
+	 * This will check if a move is possible.
+	 * 
+	 */
 	
 	@Override
-	
-	
-	// logic to see if there is an available move possible??
-	
 	public boolean isMovePossible() {
 		// TODO Auto-generated method stub
 		return false;
 	}
 
-/*	
- * Removed this to create a more generic actionPieces() method
- * Matt Jones
- * 
- * @Override
-	public void flipPieces() {
-		// TODO Auto-generated method stub
-		
-	}*/
-	
 	
 	/**
 	 * The actionPieces method will return true if the object in the middle of a move 
@@ -140,16 +150,42 @@ public class CheckersRulesSet implements RulesSetInterface {
 		return false;
 		
 	}
-
+	
+	
+	/**
+	 * Not used, but since we documented it in the original UML, this should stay.
+	 * 
+	 * @deprecated 4.0
+	 * 
+	 * @return Move
+	 */
+	
 	public Move getM() {
 		return m;
 	}
-
+	
+	
+	/**
+	 * Not used, but since we documented it in the original UML, this should stay.
+	 * 
+	 * @deprecated 4.0
+	 * 
+	 * 
+	 */
+	
 	public void setM(Move m) {
 		this.m = m;
 	}
 
 	@Override
+	/**
+	 * Not Yet Implemented
+	 * 
+	 * Will check the move is valid, post movement 
+	 * (ie: didn't breach any rules that need to be considered retrospectively.)
+	 * 
+	 */
+	
 	public boolean checkMove(Move m) {
 		
 		// if move is valid return true.
@@ -158,6 +194,11 @@ public class CheckersRulesSet implements RulesSetInterface {
 		return false;
 	}
 
+	/**
+	 * Not used, this is a hangover method from original implementation.
+	 * 
+	 * @deprecated 4.0 
+	 */
 	@Override
 	public void flipPieces() {
 		// TODO Auto-generated method stub

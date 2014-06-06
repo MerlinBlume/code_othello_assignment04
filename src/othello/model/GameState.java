@@ -2,6 +2,12 @@ package othello.model;
 import othello.app.Memento;
 import othello.view.CmdListener;
 
+/**
+ * The GameState class manages the state of the game.
+ * Including who is playing, and how to swich who is playing.
+ * 
+ *
+ */
 
 
 public class GameState implements CmdListener {
