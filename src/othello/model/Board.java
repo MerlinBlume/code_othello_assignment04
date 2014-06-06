@@ -15,8 +15,8 @@ class GenericBoard<T extends Comparable<T>> {
 		for(int i=0; i < dimension; i++) {
 			
 			board.add(new ArrayList<Comparable<T>>(dimension));
-			for(int j = 0; j < dimension; j++){
-			
+			for(int j = 0; j < dimension; j++){	
+				
 				board.get(i).add(null);
 			}
 		}
@@ -46,8 +46,8 @@ class GenericBoard<T extends Comparable<T>> {
 	}
 	
 	
-	public T getPiece(int x, int y) {
-		return (T)board.get(x).get(y);
+	public <T> Comparable<T> getPiece(int x, int y) {
+		return (Comparable<T>) board.get(x).get(y);
 	}
 	
 	
