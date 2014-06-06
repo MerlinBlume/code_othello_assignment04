@@ -6,29 +6,40 @@ public class Player {
 	private String name;
 	private String colour;
 	
+	/**
+	 * Sets the name of the player when the Player is constructed.
+	 * 
+	 * @param name
+	 * 
+	 */
+	
 	public Player(String name){
 		this.name = name;
 	}
 
+	/**
+	 * Returns the name of the player.
+	 * @return PLayer's Name.
+	 */
+	
 	public String getName() {
 		return name;
 	}
 
+	/**
+	 * Returns the colour of the player.
+	 * 
+	 * @return colour of player
+	 */
 	public String getColour() {
 		return colour;
 	}
-
-	/*
-	 * Took this out and made it consistant with "Disc" as otherwise it is harder to compare.
-	 *  Matt Jones.
-	 *  public void setColour(String colour) {
-	 *	if(colour.equalsIgnoreCase("Black") || colour.equalsIgnoreCase("w"))
-	 *		this.colour = colour;
-	 *	else
-	 *		System.out.print("Please enter a valid colour.");
-	 * }
-     */
 	
+	/**
+	 * Sets the colour of the Player.
+	 * 
+	 * @param colour
+	 */
 	public void setColour(String colour){
 			
 			this.colour = colour;

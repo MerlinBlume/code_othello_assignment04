@@ -1,5 +1,12 @@
 package othello.model;
 
+/**
+ * The PlayerList class is responsible for getting the names of the players.
+ * This in future releases may not exist (and code moved into CommandPrompt, etc)
+ * 
+ * This code determines the names of the players, and colours of these players.
+ * 
+ */
 
 import java.util.Scanner;
 
@@ -26,6 +33,11 @@ public class PlayerList {
 		
 	}
 
+	/**
+	 * From the colour sent in, this method will get the player name for the colour.
+	 * @param colour
+	 * @return the Players name.
+	 */
 	public String getPlayerName(String colour){
 		String name;
 		
@@ -38,10 +50,20 @@ public class PlayerList {
 	}
 	
 	
+	/**
+	 * Will return WhitePlayer object.
+	 * 
+	 * @return the WhitePlayer object.
+	 */
 	public Player getWhitePlayer() {
 		return whitePlayer;
 	}
 
+	/**
+	 * Will return Black Player object.
+	 * 
+	 * @return the Black Player object.
+	 */
 	public Player getBlackPlayer() {
 		return blackPlayer;
 	}
